@@ -1,0 +1,92 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["filterJson"]
+}
+
+generator nexusPrisma {
+   provider = "nexus-prisma"
+// provider = "nexus_prisma"    <-- For prisma@=<2.17 users
+}
+
+model StatisticType {
+  id String @id @default(uuid())
+  description String?
+  schema        Json?
+
+  @@map(name: "statistic_types")
+}
+
+model Team {
+  id String @id @default(uuid())
+  name String 
+  startDate DateTime 
+  endDate DateTime? 
+  members UserTeam[]
+}
+
+model UserTeam {
+  id String @id @default(uuid())
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id])
+  teamId String @map("team_id")
+  team Team @relation(fields: [teamId], references: [id])
+
+  @@map(name: "user_team")
+}
+
+model Sport {
+  id        String     @id @default(uuid())
+  name     String
+  startDate DateTime
+  level   String?
+  published Boolean @default(false)
+  users    UserSport[]  
+  authorId  Int?
+
+  @@map(name: "sports")
+}
+
+model UserSport {
+  id String @id @default(uuid())
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id])
+  sportId String @map("sport_id")
+  sport Sport @relation(fields: [sportId], references: [id])
+
+  @@map(name: "user_sport")
+}
+
+model User {
+    id  String @id @default(uuid())
+    identifier String @unique
+    email String
+    data Json?
+    roles    UserRole[]
+    sports UserSport[]
+    teams UserTeam[]
+
+    @@map(name: "users")
+}
+
+model UserRole {
+   id    String @id @default(uuid())
+   userId String @map("user_id")
+   user  User @relation(fields: [userId], references: [id])
+   roleId String @map("role_id")
+   role Role @relation(fields: [roleId], references: [id])
+
+   @@map(name: "user_roles")
+}
+
+model Role {
+  id    String @id @default(uuid())
+  name String
+  users  UserRole[]
+
+  @@map(name: "roles")
+}

@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  postgres_db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: sportsapp
+      POSTGRES_PASSWORD: sportsapp
+      POSTGRES_DB: sportsdb
+    ports:
+      - "5464:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - "4101:4001"
+      - "5101:5001"
+      - "8180:8080"
+    volumes:
+      - ipfs:/data/ipfs
+
+networks:
+  default:
+    external: true
+    name: lexipol-net
+
+volumes:
+  ipfs:
+    external: true
+
