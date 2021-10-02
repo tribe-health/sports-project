@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b864df1-71f1-43b8-bbb3-9b1110df03e0" name="Changes" comment="" />
+    <list default="true" id="7b864df1-71f1-43b8-bbb3-9b1110df03e0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/dev.db" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="w0ta2mzn" />
   </component>
   <component name="ProjectId" id="1yxvuGjyWtJZZwv9RcCGsOd5wAm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633206274531</updated>
       <workItem from="1633206275807" duration="10000" />
-      <workItem from="1633210034762" duration="1580000" />
+      <workItem from="1633210034762" duration="1828000" />
     </task>
     <servers />
   </component>
